@@ -1,0 +1,48 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for a Swagger API.",
+        "title": "Example API",
+        "termsOfService": "http://example.com/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "https://academy.lumoshive.com/contact-us",
+            "email": "lumoshive.academy@gmail.com"
+        },
+        "license": {
+            "name": "Lumoshive Academy",
+            "url": "https://academy.lumoshive.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "description": "Authenticate a user with their username and passwor.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login user",
+                "responses": {}
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BasixAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

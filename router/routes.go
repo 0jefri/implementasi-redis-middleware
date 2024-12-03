@@ -7,11 +7,14 @@ import (
 	"github.com/project-sistem-voucher/manager"
 	"github.com/project-sistem-voucher/middleware"
 	"github.com/sirupsen/logrus"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func SetupRouter(router *gin.Engine) error {
 
 	router.Use(middleware.LogRequestMiddleware(logrus.New()))
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	rdb := config.NewCacher(*config.Cfg, 50)
 	infraManager := manager.NewInfraManager(config.Cfg)
